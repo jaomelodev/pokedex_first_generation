@@ -24,7 +24,8 @@ dependencies:
   flutter:
     sdk: flutter
   cupertino_icons: ^1.0.2
-  mobx: ^2.0.1
+  mobx:
+  flutter_mobx:
   cached_network_image: ^3.0.0
   md2_tab_indicator: ^1.0.2
   provider: ^5.0.0
@@ -32,6 +33,7 @@ dependencies:
   sliding_sheet: ^0.5.0
   flutter_icons: ^1.1.0
   intl: ^0.17.0
+  http: ^0.13.1
 
 dev_dependencies:
   flutter_test:
@@ -52,7 +54,7 @@ flutter:
 
   # To add assets to your application, add an assets section, like this:
   assets:
-    - assets/images/pokeball_dark.png
+    - assets/images/pokeball.png
     - assets/images/pokeball_dark.png
 
   # An image asset can refer to one or more resolution-specific "variants", see
