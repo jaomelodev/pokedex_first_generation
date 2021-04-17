@@ -15,8 +15,20 @@ abstract class _PokeApiStoreBase with Store {
   @observable
   PokeAPI _pokeAPI;
 
+  @observable
+  Pokemon _currentPokemon;
+
+  @observable
+  Color pokemonColor;
+
+  @observable
+  int currentPosition;
+
   @computed
   PokeAPI get pokeAPI => _pokeAPI;
+
+  @computed
+  Pokemon get currentPokemon => _currentPokemon;
 
   @action
   fetchPokemonList() {
@@ -26,13 +38,20 @@ abstract class _PokeApiStoreBase with Store {
     });
   }
 
-  @action
-  getPokemon({int index}) {
+  Pokemon getPokemon({int index}) {
     return _pokeAPI.pokemon[index];
   }
 
   @action
+  setCurrentPokemon({int index}) {
+    _currentPokemon = _pokeAPI.pokemon[index];
+    pokemonColor = ConstsAPI.getColorType(type: _currentPokemon.type[0]);
+    currentPosition = index;
+  }
+
+  @action
   Widget getImage({String numero}) {
+    //Esse link de imagem vai até o 809, então ele não envolve a última geração (sword and shild)
     return CachedNetworkImage(
       placeholder: (context, url) => new Container(
         color: Colors.transparent,
